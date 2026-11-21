@@ -95,6 +95,13 @@ $('add').onclick = async () => {
   try {
     await addDoc(collection(db,'chores'), {title, date:$('date').value, time:$('time').value, repeat:$('repeat').value,
       done:false, by:auth.currentUser.email, created:serverTimestamp()});
+    if (auth.currentUser.email !== 'tshiamogolo@gmail.com') {
+  fetch('https://ntfy.sh/chores-hyux095v86b11s8uybxmswqw', {
+    method: 'POST',
+    headers: { 'Title': 'New chore added' },
+    body: title + ' (' + $('date').value + ')'
+  }).catch(() => {});
+}
     $('title').value=''; $('time').value=''; $('msg').textContent='Added ✓';
   } catch(e) { $('msg').textContent = 'Could not save: '+e.code; }
 };
