@@ -38,3 +38,4 @@ Send the link to your family. They tap **Sign in with Google** (must be an addre
 ## Ideas for later
 - XP points per chore (ties into your habit app).
 - Push the chores into Google Calendar automatically.
+
