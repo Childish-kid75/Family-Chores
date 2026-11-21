@@ -56,12 +56,28 @@ import {getAuth,GoogleAuthProvider,signInWithPopup,onAuthStateChanged,signOut} f
 import {getFirestore,collection,doc,addDoc,updateDoc,deleteDoc,onSnapshot,query,orderBy,serverTimestamp} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
 // 1. PASTE YOUR FIREBASE CONFIG HERE (Project settings > Your apps > Web app)
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "PASTE_HERE",
-  authDomain: "PASTE_HERE",
-  projectId: "PASTE_HERE",
-  appId: "PASTE_HERE"
+  apiKey: "AIzaSyCafXaRK-pH686WvSiH1uDcxfuKYm54GiM",
+  authDomain: "family-chores-b25c2.firebaseapp.com",
+  databaseURL: "https://family-chores-b25c2-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "family-chores-b25c2",
+  storageBucket: "family-chores-b25c2.firebasestorage.app",
+  messagingSenderId: "865989335618",
+  appId: "1:865989335618:web:a6040e132adefc4b20abdb",
+  measurementId: "G-FL3ZY5W5Y6"
 };
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
 const $ = i => document.getElementById(i);
 const app = initializeApp(firebaseConfig), auth = getAuth(app), db = getFirestore(app);
